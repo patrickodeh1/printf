@@ -27,7 +27,7 @@ The printf function is part of the Standard Input/Output Library (stdio.h) and i
 The code will be compiled using: ```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c```i
 
 
-#### Contributors
+#### Collaborators
 
 - Patrick Odeh
 - Clinton Nwokocha
