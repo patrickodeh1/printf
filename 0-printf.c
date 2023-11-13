@@ -8,7 +8,9 @@
 
 int print_string(char *s)
 {
-	int counter = 0;
+	int counter;
+
+	counter = 0;
 
 	while (*s != '\0')
 	{
@@ -27,7 +29,9 @@ int print_string(char *s)
 
 int handle_format_specifier(const char **format, va_list args)
 {
-	int counter = 0;
+	int counter;
+
+	counter = 0;
 
 	switch (**format)
 	{
@@ -56,9 +60,10 @@ int handle_format_specifier(const char **format, va_list args)
 int _printf(const char *format, ...)
 {
 	va_list args;
+	int counter;
 
 	va_start(args, format);
-	int counter = 0;
+	counter = 0;
 
 	while (*format != '\0')
 	{
