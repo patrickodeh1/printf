@@ -13,7 +13,7 @@ int _strlen(char *str)
 	return (i);
 }
 /**
- * _strlrnc - strlen function but applied for constant char pointer str
+ * _strlenc - strlen function but applied for constant char pointer str
  * @str: char pointer
  * Return: i
  */

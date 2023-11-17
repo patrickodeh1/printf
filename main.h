@@ -3,6 +3,11 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+/**
+ * struct format - A structure for format specifiers.
+ * @id: The format specifier.
+ * @f: The function pointer to the function
+ */
 
 typedef struct format
 {
