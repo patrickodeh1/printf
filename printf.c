@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		{"%d", print_37}, {"%i", print_int}, {"%r", print_reverse},
 		{"%R", print_rot13}, {"%b", con_bin}, {"%u", print_unsigned},
 		{"%o", print_octal}, {"%x", print_hexa}, {"%X", print_cap_hexa},
-		{"%S", print_spec_str}, {"%p", print_pointer}
+		{"%S", print_spec_str}
 	};
 
 	va_list args;
