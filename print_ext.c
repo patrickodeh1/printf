@@ -13,7 +13,7 @@ int print_extra_hex(unsigned int num)
 	while (num / 16 != 0)
 	{
 		num = num / 16;
-		count++
+		count++;
 	}
 	count++;
 	array = malloc(sizeof(int) * count);
@@ -31,4 +31,3 @@ int print_extra_hex(unsigned int num)
 	free(array);
 	return (count);
 }
-
