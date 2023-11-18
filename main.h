@@ -3,6 +3,9 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * struct format - A structure for format specifiers.
  * @id: The format specifier.
