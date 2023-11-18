@@ -18,10 +18,6 @@ int print_hexa(va_list val)
 	}
 	count++;
 	array = malloc(sizeof(int) * count);
-	if (array == NULL)
-	{
-		return (NULL);
-	}
 	for (i = 0; i < count; i++)
 	{
 		array[i] = tmp % 16
