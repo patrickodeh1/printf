@@ -1,15 +1,18 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stddef.h>
 
 /**
- * _printf - Custom printf function
+ * _printf - Produces output according to a format
  * @format: Format string
  *
  * Return: Number of characters printed (excluding the null byte)
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
 	int count = 0;
+	va_list args;
+	int (*func)(va_list);
 
 	if (format == NULL)
 		return (-1);
@@ -21,7 +24,25 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count += handle_specifiers(format, args);
+			if (*format == '\0')
+				return (-1);  // If the format ends with an unescaped '%'
+			if (*format == '%')
+			{
+				_putchar('%');
+				count++;
+			}
+			else
+			{
+				func = get_print_func(*format);
+				if (func)
+					count += func(args);
+				else
+				{
+					_putchar('%');
+					_putchar(*format);
+					count += 2;
+				}
+			}
 		}
 		else
 		{
