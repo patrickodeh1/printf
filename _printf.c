@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				return (-1);  // If the format ends with an unescaped '%'
+			return (-1);
 			if (*format == '%')
 			{
 				_putchar('%');
