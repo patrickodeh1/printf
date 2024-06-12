@@ -1,4 +1,4 @@
-#include "main.h"
+nclude "main.h"
 #include <stdarg.h>
 #include <stddef.h>
 
@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	va_list args;
-	int (*func)(va_list);
+	print_func func;
 
 	if (format == NULL)
 		return (-1);
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-			return (-1);
+				return (-1);  // If the format ends with an unescaped '%'
 			if (*format == '%')
 			{
 				_putchar('%');
@@ -55,3 +55,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
