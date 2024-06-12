@@ -28,7 +28,7 @@ int print_number(int n)
 	_putchar(num % 10 + '0');
 	count++;
 
-	return count;
+	return (count);
 }
 
 /**
@@ -47,7 +47,7 @@ int print_unsigned_number(unsigned int n)
 	_putchar(n % 10 + '0');
 	count++;
 
-	return count;
+	return (count);
 }
 
 /**
@@ -65,7 +65,7 @@ int print_binary(unsigned int n)
 	if (n == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (mask)
@@ -84,7 +84,7 @@ int print_binary(unsigned int n)
 		mask >>= 1;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
@@ -102,7 +102,7 @@ int print_octal(unsigned int n)
 	if (n == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (n != 0)
@@ -118,7 +118,7 @@ int print_octal(unsigned int n)
 		count++;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
@@ -134,16 +134,17 @@ int print_hexadecimal(unsigned int n, int uppercase)
 	char hex_digits[100];
 	int i = 0;
 	char offset = uppercase ? 'A' - 10 : 'a' - 10;
+	int digit;
 
 	if (n == 0)
 	{
 		_putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (n != 0)
 	{
-		int digit = n % 16;
+		digit = n % 16;
 		hex_digits[i] = digit < 10 ? digit + '0' : digit + offset;
 		n /= 16;
 		i++;
@@ -155,7 +156,7 @@ int print_hexadecimal(unsigned int n, int uppercase)
 		count++;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
@@ -167,12 +168,12 @@ int print_hexadecimal(unsigned int n, int uppercase)
 int print_pointer(void *p)
 {
 	int count = 0;
-	uintptr_t address = (uintptr_t)p;
+	unsigned long address = (unsigned long)p;
 
 	count += _puts("0x");
 	count += print_hexadecimal(address, 0);
 
-	return count;
+	return (count);
 }
 
 /**
@@ -202,7 +203,7 @@ int print_non_printable(char *str)
 		str++;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
@@ -227,7 +228,7 @@ int print_reversed(char *str)
 		count++;
 	}
 
-	return count;
+	return (count);
 }
 
 /**
@@ -240,7 +241,7 @@ int print_rot13(char *str)
 {
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	int i, j, count = 0;
+	int i, count = 0;
 
 	if (str == NULL)
 		str = "(null)";
@@ -264,5 +265,5 @@ int print_rot13(char *str)
 		str++;
 	}
 
-	return count;
+	return (count);
 }
