@@ -8,29 +8,37 @@
  */
 int _printf(const char *format, ...)
 {
-    va_list args;
-    int count = 0;
+	va_list args;
+	int count = 0;
 
-    if (format == NULL)
-        return (-1);
+	if (format == NULL)
+		return (-1);
 
-    va_start(args, format);
+	va_start(args, format);
 
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            count += handle_specifiers(format, args);
-        }
-        else
-        {
-            _putchar(*format);
-            count++;
-        }
-        format++;
-    }
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '%')
+			{
+				_putchar('%');
+				count++;
+			}
+			else
+			{
+				count += handle_specifiers(format, args);
+			}
+		}
+		else
+		{
+			_putchar(*format);
+			count++;
+		}
+		format++;
+	}
 
-    va_end(args);
-    return (count);
+	va_end(args);
+	return (count);
 }
