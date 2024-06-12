@@ -1,28 +1,24 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
+/* Function Prototypes */
+int _printf(const char *format, ...);
 int _putchar(char c);
 int _puts(char *str);
-int _printf(const char *format, ...);
-
-typedef int (*print_func)(va_list);
-print_func get_print_func(char c);
-
-int print_char(va_list args);
-int print_string(va_list args);
-int print_percent(va_list args);
-int print_int(va_list args);
-int print_unsigned(va_list args);
-int print_binary(va_list args);
-int print_octal(va_list args);
-int print_hex_lower(va_list args);
-int print_hex_upper(va_list args);
-int print_pointer(va_list args);
-int print_non_printable(va_list args);
-int print_reversed(va_list args);
-int print_rot13(va_list args);
+int handle_specifiers(const char *format, va_list args);
+int handle_custom_specifiers(const char *format, va_list args);
+int print_number(int n);
+int print_unsigned_number(unsigned int n);
+int print_binary(unsigned int n);
+int print_octal(unsigned int n);
+int print_hexadecimal(unsigned int n, int uppercase);
+int print_pointer(void *p);
+int print_non_printable(char *str);
+int print_reversed(char *str);
+int print_rot13(char *str);
 
 #endif /* MAIN_H */
